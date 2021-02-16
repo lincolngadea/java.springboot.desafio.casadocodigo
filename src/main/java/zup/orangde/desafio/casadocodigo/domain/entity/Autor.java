@@ -1,8 +1,6 @@
 package zup.orangde.desafio.casadocodigo.domain.entity;
 
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -23,18 +21,17 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String name;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String email;
 
-//    @Column(nullable = false, length = 400)
+    @Column(nullable = false, length = 400)
     private String description;
 
-//    @Column(nullable = false)
-    @Column(name = "Data")
-    private LocalDate registrationTime;
+    @Column(nullable = false)
+    private LocalDate registrationTime = LocalDate.now();
 
     public Autor() {
     }
@@ -43,10 +40,6 @@ public class Autor {
         this.name = name;
         this.email = email;
         this.description = description;
-        this.registrationTime = registrationTime;
-    }
-
-    public void setRegistrationTime(LocalDate registrationTime) {
         this.registrationTime = registrationTime;
     }
 
