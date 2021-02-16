@@ -1,4 +1,4 @@
-package zup.orangde.desafio.casadocodigo.domain;
+package zup.orangde.desafio.casadocodigo.domain.entity;
 
 
 import javax.persistence.*;
