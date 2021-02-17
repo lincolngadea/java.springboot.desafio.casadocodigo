@@ -20,7 +20,7 @@ public class Autor {
     @Size(max = 100)
     private String name;
 
-    @Email(message = "Informe um email Válido")
+    @Email
     @NotBlank
     private String email;
 
@@ -28,17 +28,14 @@ public class Autor {
     @NotBlank
     private String description;
 
-    @NotBlank
     private LocalDate registrationTime = LocalDate.now();
 
     public Autor(@NotBlank @Size(max = 100) String name,
                  @NotBlank @Email String email,
-                 @NotBlank @Size(max = 400) String description,
-                 @NotBlank LocalDate registrationTime) {
+                 @NotBlank @Size(max = 400) String description) {
         this.name = name;
         this.email = email;
         this.description = description;
-        this.registrationTime = registrationTime;
     }
 
     @Override
