@@ -17,13 +17,7 @@ public class AutorRepository {
 
     @Transactional
     public Autor save(@Valid Autor autor){
-
         entityManager.persist(autor);
         return autor;
-    }
-
-    @Transactional
-    public List<Autor> autorList(){
-        return entityManager.createQuery("from Autor", Autor.class).getResultList();
     }
 }

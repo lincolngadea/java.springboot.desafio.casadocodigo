@@ -2,16 +2,11 @@ package zup.orangde.desafio.casadocodigo.domain.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Objects;
-
-/*
-O instante não pode ser nulo ok
-O email é obrigatório ok
-O email tem que ter formato válido
-O nome é obrigatório ok
-A descrição é obrigatória e não pode passar de 400 caracteres
- */
 
 @Entity
 @Table(name = "autor")
@@ -21,46 +16,29 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @NotBlank
+    @Size(max = 100)
     private String name;
 
-    @Column(nullable = false)
+    @Email(message = "Informe um email Válido")
+    @NotBlank
     private String email;
 
-    @Column(nullable = false, length = 400)
+    @Size(max = 400)
+    @NotBlank
     private String description;
 
-    @Column(nullable = false)
+    @NotBlank
     private LocalDate registrationTime = LocalDate.now();
 
-    public Autor() {
-    }
-
-    public Autor(String name, String email, String description, LocalDate registrationTime) {
+    public Autor(@NotBlank @Size(max = 100) String name,
+                 @NotBlank @Email String email,
+                 @NotBlank @Size(max = 400) String description,
+                 @NotBlank LocalDate registrationTime) {
         this.name = name;
         this.email = email;
         this.description = description;
         this.registrationTime = registrationTime;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public LocalDate getRegistrationTime() {
-        return registrationTime;
     }
 
     @Override
@@ -79,7 +57,11 @@ public class Autor {
         if (this == o) return true;
         if (!(o instanceof Autor)) return false;
         Autor autor = (Autor) o;
-        return Objects.equals(id, autor.id) && Objects.equals(name, autor.name) && Objects.equals(email, autor.email) && Objects.equals(description, autor.description) && Objects.equals(registrationTime, autor.registrationTime);
+        return Objects.equals(id, autor.id)
+                && Objects.equals(name, autor.name)
+                && Objects.equals(email, autor.email)
+                && Objects.equals(description, autor.description)
+                && Objects.equals(registrationTime, autor.registrationTime);
     }
 
     @Override
