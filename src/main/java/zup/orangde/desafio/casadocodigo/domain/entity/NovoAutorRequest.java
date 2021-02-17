@@ -6,13 +6,17 @@ import javax.validation.constraints.Size;
 
 public class NovoAutorRequest {
 
-    private @NotBlank @Size(max = 100) String name;
-    private @Email @NotBlank String email;
-    private @Size(max = 400) @NotBlank String description;
+    private final @NotBlank @Size(max = 100) String name;
+    private final @Email @NotBlank String email;
+    private final @Size(max = 400) @NotBlank String description;
 
     public NovoAutorRequest(@NotBlank @Size(max = 100) String name,
                             @Email @NotBlank String email,
                             @Size(max = 400) @NotBlank String description) {
+
+        if(name==null || email==null || description==null || name.trim().equals("") || email.trim().equals("")||description.trim().equals("")){
+            throw new IllegalArgumentException("Todos os campos são obrigatórios!");
+        }
         this.name = name;
         this.email = email;
         this.description = description;
