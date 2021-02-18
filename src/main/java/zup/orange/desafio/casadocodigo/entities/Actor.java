@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "autor")
-public class Autor {
+public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,10 @@ public class Autor {
     private final LocalDate registrationTime = LocalDate.now();
 
     @Deprecated
-    public Autor() {
+    public Actor() {
     }
 
-    public Autor(@NotBlank @Size(max = 100) String name,
+    public Actor(@NotBlank @Size(max = 100) String name,
                  @NotBlank @Email String email,
                  @NotBlank @Size(max = 400) String description) {
 
@@ -62,13 +62,13 @@ public class Autor {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Autor)) return false;
-        Autor autor = (Autor) o;
-        return Objects.equals(id, autor.id)
-                && Objects.equals(name, autor.name)
-                && Objects.equals(email, autor.email)
-                && Objects.equals(description, autor.description)
-                && Objects.equals(registrationTime, autor.registrationTime);
+        if (!(o instanceof Actor)) return false;
+        Actor actor = (Actor) o;
+        return Objects.equals(id, actor.id)
+                && Objects.equals(name, actor.name)
+                && Objects.equals(email, actor.email)
+                && Objects.equals(description, actor.description)
+                && Objects.equals(registrationTime, actor.registrationTime);
     }
 
     @Override
