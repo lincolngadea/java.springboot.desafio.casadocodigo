@@ -17,15 +17,6 @@ public class AutorController {
     @PersistenceContext
     private EntityManager entityManager;
 
-//    @Autowired
-//    private DuplicateEmailValidator duplicateEmailValidator;
-//
-//    @InitBinder
-//    public void init(WebDataBinder binder){
-//        binder.addValidators(duplicateEmailValidator);
-//    }
-
-
     @Transactional
     @PostMapping(value = "/autores")
     public String save(@RequestBody @Valid NovoAutorRequest request){
