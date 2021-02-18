@@ -1,4 +1,6 @@
-package zup.orangde.desafio.casadocodigo.entities;
+package zup.orange.desafio.casadocodigo.entities;
+
+import zup.orange.desafio.casadocodigo.config.validations.annotations.EmailOnly;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -7,7 +9,7 @@ import javax.validation.constraints.Size;
 public class NovoAutorRequest {
 
     private final @NotBlank @Size(max = 100) String name;
-    private final @Email @NotBlank String email;
+    private final @Email @NotBlank @EmailOnly String email;
     private final @Size(max = 400) @NotBlank String description;
 
     public NovoAutorRequest(@NotBlank @Size(max = 100) String name,

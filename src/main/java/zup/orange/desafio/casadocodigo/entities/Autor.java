@@ -1,4 +1,4 @@
-package zup.orangde.desafio.casadocodigo.entities;
+package zup.orange.desafio.casadocodigo.entities;
 
 
 import javax.persistence.*;
@@ -23,7 +23,7 @@ public class Autor {
     @Email
     @NotBlank
     @Column(unique = true)
-    private  String email;
+    private String email;
 
     @Size(max = 400)
     @NotBlank

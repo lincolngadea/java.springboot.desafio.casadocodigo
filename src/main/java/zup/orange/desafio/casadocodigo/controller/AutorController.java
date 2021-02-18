@@ -1,14 +1,10 @@
-package zup.orangde.desafio.casadocodigo.controller;
+package zup.orange.desafio.casadocodigo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import zup.orangde.desafio.casadocodigo.config.validations.DuplicateEmailValidator;
-import zup.orangde.desafio.casadocodigo.entities.Autor;
-import zup.orangde.desafio.casadocodigo.entities.NovoAutorRequest;
+import zup.orange.desafio.casadocodigo.entities.Autor;
+import zup.orange.desafio.casadocodigo.entities.NovoAutorRequest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,13 +17,13 @@ public class AutorController {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
-    private DuplicateEmailValidator duplicateEmailValidator;
-
-    @InitBinder
-    public void init(WebDataBinder binder){
-        binder.addValidators(duplicateEmailValidator);
-    }
+//    @Autowired
+//    private DuplicateEmailValidator duplicateEmailValidator;
+//
+//    @InitBinder
+//    public void init(WebDataBinder binder){
+//        binder.addValidators(duplicateEmailValidator);
+//    }
 
 
     @Transactional

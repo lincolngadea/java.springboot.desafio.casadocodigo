@@ -1,4 +1,4 @@
-package zup.orangde.desafio.casadocodigo;
+package zup.orange.desafio.casadocodigo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,8 @@
-package zup.orangde.desafio.casadocodigo.repository;
+package zup.orange.desafio.casadocodigo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import zup.orangde.desafio.casadocodigo.entities.Autor;
+import zup.orange.desafio.casadocodigo.entities.Autor;
 
 import java.util.Optional;
 

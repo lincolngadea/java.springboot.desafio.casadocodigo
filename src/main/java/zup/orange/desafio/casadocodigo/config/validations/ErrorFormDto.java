@@ -1,10 +1,10 @@
-package zup.orangde.desafio.casadocodigo.config.validations;
+package zup.orange.desafio.casadocodigo.config.validations;
 
 public class ErrorFormDto {
-	
+
 	private final String field;
 	private final String error;
-	
+
 	public ErrorFormDto(String field, String error) {
 		this.field = field;
 		this.error = error;
@@ -17,7 +17,7 @@ public class ErrorFormDto {
 	public String getError() {
 		return error;
 	}
-	
-	
+
+
 
 }
