@@ -18,6 +18,4 @@ public class ErrorFormDto {
 		return error;
 	}
 
-
-
 }

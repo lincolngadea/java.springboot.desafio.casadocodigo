@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import zup.orange.desafio.casadocodigo.entities.Autor;
-import zup.orange.desafio.casadocodigo.entities.NovoAutorRequest;
+import zup.orange.desafio.casadocodigo.formRequest.NovoAutorRequest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

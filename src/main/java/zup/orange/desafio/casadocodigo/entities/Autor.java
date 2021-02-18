@@ -22,7 +22,6 @@ public class Autor {
 
     @Email
     @NotBlank
-    @Column(unique = true)
     private String email;
 
     @Size(max = 400)
@@ -43,6 +42,10 @@ public class Autor {
         this.name = name;
         this.email = email;
         this.description = description;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override

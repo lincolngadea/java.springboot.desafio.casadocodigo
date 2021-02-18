@@ -1,5 +1,4 @@
-package zup.orange.desafio.casadocodigo.config.validations.annotations;
-
+package zup.orange.desafio.casadocodigo.config.validations.annotations.uniqueValidation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,14 +10,18 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
-@Constraint(validatedBy= EmailOnlyValidator.class)
+@Constraint(validatedBy ={UniqueValueValidator.class})
 @Target({FIELD})
 @Retention(RUNTIME)
-public @interface EmailOnly {
-
-    String message() default  "{zup.orange.desafio.casadocodigo.config.validations.annotations.EmailOnly}";
+public @interface UniqueValue {
+    String message() default  "{zup.orange.desafio.casadocodigo.config.validations.uniquevalue}";
 
     Class<?>[] groups() default  { };
 
     Class<? extends Payload>[] payload() default { };
+
+    String fieldName();
+
+    Class<?> domainClass();
+
 }
