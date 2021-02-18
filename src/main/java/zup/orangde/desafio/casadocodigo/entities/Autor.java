@@ -1,4 +1,4 @@
-package zup.orangde.desafio.casadocodigo.domain.entity;
+package zup.orangde.desafio.casadocodigo.entities;
 
 
 import javax.persistence.*;
@@ -18,17 +18,22 @@ public class Autor {
 
     @NotBlank
     @Size(max = 100)
-    private String name;
+    private  String name;
 
     @Email
     @NotBlank
-    private String email;
+    @Column(unique = true)
+    private  String email;
 
     @Size(max = 400)
     @NotBlank
     private String description;
 
-    private LocalDate registrationTime = LocalDate.now();
+    private final LocalDate registrationTime = LocalDate.now();
+
+    @Deprecated
+    public Autor() {
+    }
 
     public Autor(@NotBlank @Size(max = 100) String name,
                  @NotBlank @Email String email,
