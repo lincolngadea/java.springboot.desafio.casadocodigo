@@ -11,11 +11,6 @@ public class CategoryDTO {
     @UniqueValue(fieldName = "name",domainClass = Category.class,message = "O Campo Nome é obrigatório...")
     private String name;
 
-    @Deprecated
-    public CategoryDTO() {
-
-    }
-
     public String getName() {
         return name;
     }

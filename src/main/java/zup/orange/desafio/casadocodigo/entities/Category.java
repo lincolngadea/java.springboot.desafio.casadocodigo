@@ -4,6 +4,8 @@ import zup.orange.desafio.casadocodigo.config.validations.annotations.uniqueVali
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,16 +17,20 @@ public class Category {
     @NotBlank
     private String name;
 
-    @Deprecated
-    public Category() {
-    }
-
     public Category(@NotBlank String name) {
         this.name = name;
     }
 
+    @Deprecated
+    public Category() {
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

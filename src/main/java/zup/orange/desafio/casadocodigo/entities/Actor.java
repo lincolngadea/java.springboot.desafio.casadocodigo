@@ -6,6 +6,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -35,10 +37,9 @@ public class Actor {
     }
 
     public Actor(@NotBlank @Size(max = 100) String name,
-                 @NotBlank @Email String email,
-                 @NotBlank @Size(max = 400) String description) {
-
-
+                 @Email @NotBlank String email,
+                 @Size(max = 400)
+                 @NotBlank String description) {
         this.name = name;
         this.email = email;
         this.description = description;
