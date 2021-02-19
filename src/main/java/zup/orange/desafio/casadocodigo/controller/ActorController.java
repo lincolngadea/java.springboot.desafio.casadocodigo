@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import zup.orange.desafio.casadocodigo.entities.Actor;
-import zup.orange.desafio.casadocodigo.formRequest.NewActorRequest;
+import zup.orange.desafio.casadocodigo.dto.ActorDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +19,7 @@ public class ActorController {
 
     @Transactional
     @PostMapping(value = "/actors")
-    public String save(@RequestBody @Valid NewActorRequest request){
+    public String save(@RequestBody @Valid ActorDTO request){
         Actor actor = request.toModel();
         entityManager.persist(actor);
         return actor.toString();
