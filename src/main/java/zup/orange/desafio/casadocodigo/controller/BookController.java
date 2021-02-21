@@ -52,5 +52,4 @@ public class BookController {
         BookResponseDetails bookResponseDetails = new BookResponseDetails(book);
         return ResponseEntity.ok(bookResponseDetails);
     }
-
 }
