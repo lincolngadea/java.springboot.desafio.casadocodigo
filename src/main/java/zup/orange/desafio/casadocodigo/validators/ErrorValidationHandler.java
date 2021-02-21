@@ -1,4 +1,4 @@
-package zup.orange.desafio.casadocodigo.config.validations;
+package zup.orange.desafio.casadocodigo.validators;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

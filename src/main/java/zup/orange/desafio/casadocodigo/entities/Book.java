@@ -1,14 +1,11 @@
 package zup.orange.desafio.casadocodigo.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import zup.orange.desafio.casadocodigo.config.validations.annotations.uniqueValidation.UniqueValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "livro")
@@ -44,7 +41,7 @@ public class Book {
 
     @ManyToOne
     @NotNull
-    private Actor actor;
+    private Author author;
 
     @Deprecated
     public Book() {
@@ -58,7 +55,7 @@ public class Book {
                 @NotNull Integer numberPages, @NotBlank String isbn,
                 @NotBlank @Future LocalDate publicationDate,
                 @NotNull Category category,
-                @NotNull Actor actor) {
+                @NotNull Author author) {
         this.title = title;
         this.resume = resume;
         this.summary = summary;
@@ -67,7 +64,7 @@ public class Book {
         this.isbn = isbn;
         this.publicationDate = publicationDate;
         this.category = category;
-        this.actor = actor;
+        this.author = author;
     }
 
     public Long getId() {
@@ -90,7 +87,7 @@ public class Book {
                 ", isbn='" + isbn + '\'' +
                 ", publicationDate=" + publicationDate +
                 ", category=" + category +
-                ", actor=" + actor +
+                ", actor=" + author +
                 '}';
     }
 }

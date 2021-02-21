@@ -1,4 +1,4 @@
-package zup.orange.desafio.casadocodigo.config.validations.annotations.uniqueValidation;
+package zup.orange.desafio.casadocodigo.validators.annotations;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

@@ -1,4 +1,4 @@
-package zup.orange.desafio.casadocodigo.config.validations;
+package zup.orange.desafio.casadocodigo.validators;
 
 public class ErrorFormDto {
 

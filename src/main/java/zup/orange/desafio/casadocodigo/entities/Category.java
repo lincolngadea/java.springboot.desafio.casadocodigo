@@ -1,11 +1,7 @@
 package zup.orange.desafio.casadocodigo.entities;
 
-import zup.orange.desafio.casadocodigo.config.validations.annotations.uniqueValidation.UniqueValue;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
