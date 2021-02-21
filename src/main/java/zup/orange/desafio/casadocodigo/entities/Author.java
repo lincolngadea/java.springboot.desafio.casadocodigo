@@ -47,6 +47,22 @@ public class Author {
         return email;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDate getRegistrationTime() {
+        return registrationTime;
+    }
+
     @Override
     public String toString() {
         return "Autor{" +

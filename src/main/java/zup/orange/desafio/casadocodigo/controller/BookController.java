@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import zup.orange.desafio.casadocodigo.dto.BookInDto;
 import zup.orange.desafio.casadocodigo.dto.BookOutDto;
+import zup.orange.desafio.casadocodigo.dto.BookResponseDetails;
 import zup.orange.desafio.casadocodigo.entities.Book;
 
 import javax.persistence.EntityManager;
@@ -42,16 +43,14 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     @Transactional
-    public ResponseEntity<Book> bookList(@PathVariable Long id){
+    public ResponseEntity<?> bookList(@PathVariable Long id){
 
         Book book = manager.find(Book.class,id);
-        if(book != null){
-            return ResponseEntity.ok(book);
-        }else{
-            System.out.println("Passou por aqui");
+        if(book == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
+        BookResponseDetails bookResponseDetails = new BookResponseDetails(book);
+        return ResponseEntity.ok(bookResponseDetails);
     }
 
 }
