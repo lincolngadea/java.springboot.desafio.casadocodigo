@@ -1,14 +1,18 @@
 package zup.orange.desafio.casadocodigo.controller;
 
+import org.springframework.data.mapping.PersistentEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import zup.orange.desafio.casadocodigo.dto.BookOutDto;
 import zup.orange.desafio.casadocodigo.entities.Book;
 import zup.orange.desafio.casadocodigo.dto.BookInDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +40,20 @@ public class BookController {
                 .getResultStream()
                 .map(BookOutDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/books/{id}")
+    @Transactional
+    public ResponseEntity<Book> bookList(@PathVariable Long id){
+
+        Book book = manager.find(Book.class,id);
+        if(book != null){
+            return ResponseEntity.ok(book);
+        }else{
+            System.out.println("Passou por aqui");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }
