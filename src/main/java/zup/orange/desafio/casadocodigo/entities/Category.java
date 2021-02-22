@@ -5,10 +5,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
-@Table(name="category")
+@Table(name = "category")
 public class Category {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String name;
@@ -36,7 +37,6 @@ public class Category {
                 ", name='" + name + '\'' +
                 '}';
     }
-
 
 
     @Override
